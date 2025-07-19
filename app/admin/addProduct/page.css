@@ -1,0 +1,70 @@
+/* page.css */
+
+/* 1) Form container */
+.blog-form {
+  padding: 1.25rem;             /* pt-5 px-5 */
+  padding-left: 4rem;           /* pl-16 */
+  box-sizing: border-box;
+}
+
+@media (min-width: 640px) {
+  .blog-form {
+    padding-top: 3rem;          /* sm:pt-12 */
+  }
+}
+
+/* 2) Section headings */
+.form-heading {
+  font-size: 1.25rem;           /* text-xl */
+  margin-top: 1rem;             /* mt-4, except first */
+}
+
+/* 3) Upload area */
+.upload-label {
+  display: inline-block;
+  margin-top: 1rem;             /* mt-4 */
+  cursor: pointer;
+}
+
+.upload-img {
+  display: block;
+}
+
+/* 4) Text inputs & textarea */
+.form-input {
+  display: block;
+  width: 100%;
+  max-width: 500px;             /* sm:w-[500px] */
+  margin-top: 1rem;             /* mt-4 */
+  padding: 0.75rem 1rem;        /* py-3 px-4 */
+  border: 1px solid #000;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+/* 5) Select dropdown */
+.form-select {
+  display: block;
+  width: 10rem;                 /* w-40 */
+  margin-top: 1rem;             /* mt-4 */
+  padding: 0.5rem 1rem;         /* px-4 */
+  border: 1px solid #000;
+  box-sizing: border-box;
+  font-size: 1rem;
+  color: #6b7280;               /* text-gray-500 */
+  background: #fff;
+}
+
+/* 6) Submit button */
+.form-button {
+  display: inline-block;
+  margin-top: 2rem;             /* mt-8 */
+  width: 10rem;                 /* w-40 */
+  height: 3rem;                 /* h-12 */
+  background: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  box-sizing: border-box;
+}

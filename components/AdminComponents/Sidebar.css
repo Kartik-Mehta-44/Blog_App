@@ -1,0 +1,81 @@
+/* Sidebar.css */
+html, body, #__next {
+  margin: 0;
+  padding: 0;
+}
+/* 1) Entire sidebar box, flush to top & bottom, with one clean border. */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 7rem;            /* same as w‑28 */
+  min-height: 100vh;      /* full viewport height */
+  background: #f1f5f9;    /* slate-100 */
+  border: 1px solid #000; /* single outer border */
+  box-sizing: border-box;
+}
+
+@media (min-width: 640px) {
+  .sidebar {
+    width: 20rem;         /* sm:w‑80 */
+  }
+}
+
+/* 2) Logo area: fixed height, bottom divider */
+.sidebar__logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;                 /* match your header’s height */
+  border-bottom: 1px solid #000;
+  padding: 0 0.5rem;            /* px-2 */
+  box-sizing: border-box;
+}
+
+@media (min-width: 640px) {
+  .sidebar__logo {
+    padding-left: 3.5rem;       /* sm:pl-14 */
+  }
+}
+
+/* 3) Content area sits below logo, takes all remaining height */
+.sidebar__content {
+  flex: 1;                      /* fill leftover vertical space */
+  padding-top: 3rem;            /* py-12 */
+  box-sizing: border-box;
+  overflow-y: auto;             /* if you ever have more links */
+}
+
+/* 4) Center your link‑buttons in one column */
+.sidebar__links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;                 /* ≈ mt-5 between each link */
+}
+
+/* 5) Style for each Link */
+.sidebar__link {
+  display: flex;
+  align-items: center;
+  width: 80%;                   /* buttons fill 80% */
+  padding: 0.5rem 0.75rem;      /* py-2 px-3 */
+  gap: 0.75rem;                 /* gap-3 */
+  border: 1px solid #000;
+  background: #fff;
+  box-shadow: -5px 5px 0 #000;
+  font-weight: 500;
+  text-decoration: none;
+  color: inherit;
+  box-sizing: border-box;
+}
+
+@media (min-width: 640px) {
+  .sidebar__link {
+    width: 60%;                 /* slightly narrower on larger screens */
+  }
+}
+
+/* 6) Ensure your <p> stays flush inside the link */
+.sidebar__link p {
+  margin: 0;
+}
