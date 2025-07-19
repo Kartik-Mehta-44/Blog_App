@@ -1,0 +1,66 @@
+.blog-card {
+  position: relative;            /* make child absolute positioning possible */
+  max-width: 330px;
+  background-color: white;
+  border: 1px solid black;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.blog-card:hover {
+  box-shadow: -7px -7px 0px black;
+}
+
+/* ensure image is block-level and fills the card width */
+.blog-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid black;
+}
+
+/* position the category badge over the top-left of the image */
+.blog-category {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  padding: 0.25rem 0.5rem;
+  background-color: black;
+  color: white;
+  font-size: 0.875rem;
+  z-index: 2;
+}
+
+/* content area sits below the image */
+.blog-content {
+  padding: 1.25rem;
+  margin-top: 0.5rem;            /* extra space between image and title */
+}
+
+/* add a little breathing room above the title */
+.blog-title {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #1f2937;
+  letter-spacing: -0.015rem;
+}
+
+/* rest unchanged */
+.blog-description {
+  margin-bottom: 0.75rem;
+  font-size: 0.875rem;
+  color: #374151;
+  letter-spacing: -0.015rem;
+}
+
+.read-more {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.arrow-icon {
+  margin-left: 0.5rem;
+}

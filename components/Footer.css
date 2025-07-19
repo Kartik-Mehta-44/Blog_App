@@ -1,0 +1,26 @@
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  gap: 0.5rem;
+  background-color: black;
+  padding: 1.25rem 0;
+  align-items: center;
+}
+
+@media (min-width: 640px) {
+  .footer-container {
+    flex-direction: row;
+    gap: 0;
+  }
+}
+
+.footer-text {
+  font-size: 0.875rem; /* text-sm */
+  color: white;
+}
+
+.footer-icons {
+  display: flex;
+  gap: 0.5rem;
+}
