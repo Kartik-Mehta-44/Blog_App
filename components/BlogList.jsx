@@ -1,11 +1,22 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import BlogItem from '@/components/BlogItem';
 import { blog_data } from '@/Assets/assets';
 import './BlogList.css'; // Optional if using plain CSS for styling buttons/layout
+import axios from 'axios';
 
 const BlogList = () => {
 
   const [menu, setMenu] = useState("All");
+  const [blogs, setBlogs] = useState([]);
+
+  const fetchBlogs = async () => {
+    const response = await axios.get('/api/blog');
+    setBlogs(response.data.blogs);
+  }
+
+  useEffect(() => {
+    fetchBlogs();
+  }, []);
 
   return (
     <div className="blog-list">
@@ -17,14 +28,14 @@ const BlogList = () => {
       </div>
 
       <div className="blog-grid">
-        {blog_data.filter((item) => menu === "All" ? true : item.category === menu).map((item, index) => (
+        {blogs.filter((item) => menu === "All" ? true : item.category === menu).map((item, index) => (
           <BlogItem
             key={index}
             image={item.image}
             title={item.title}
             description={item.description}
             category={item.category}
-            id={item.id}
+            id={item._id}
           />
         ))}
       </div>

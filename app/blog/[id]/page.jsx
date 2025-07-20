@@ -6,13 +6,18 @@ import Link from 'next/link'
 import Footer from '@/components/Footer'
 import { assets, blog_data } from '@/Assets/assets'
 import './blogPage.css'
+import axios from 'axios'
 
 const BlogPage = ({ params }) => {
   const [data, setData] = useState(null)
 
-  const fetchBlogData = () => {
-    const found = blog_data.find(b => b.id === Number(params.id))
-    if (found) setData(found)
+  const fetchBlogData = async () => {
+    const response = await axios.get('/api/blog',{
+      params:{
+        id: params.id
+      }
+    });
+    setData(response.data);
   }
 
   useEffect(() => {
@@ -41,7 +46,7 @@ const BlogPage = ({ params }) => {
       <section className="blog-intro">
         <h1 className="blog-title">{data.title}</h1>
         <Image
-          src={data.author_img}
+          src={data.authorImg}
           width={60}
           height={60}
           alt="author"
