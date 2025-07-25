@@ -1,0 +1,41 @@
+.blog-row {
+  background-color: #fff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.blog-author-cell {
+  display: none;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  font-weight: 500;
+  color: #111827;
+  white-space: nowrap;
+}
+
+@media (min-width: 640px) {
+  .blog-author-cell {
+    display: flex;
+  }
+}
+
+.blog-author-avatar {
+  border-radius: 50%;
+}
+
+.blog-author-name {
+  font-size: 1rem;
+}
+
+.blog-title-cell,
+.blog-date-cell,
+.blog-action-cell {
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  color: #1f2937;
+}
+
+.blog-action-cell {
+  text-align: center;
+  cursor: pointer;
+}

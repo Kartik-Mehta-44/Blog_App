@@ -1,0 +1,66 @@
+/* blogList.css */
+
+/* Container and heading */
+.blog-list-container {
+  flex: 1;
+  padding: 1.25rem;           /* pt-5 px-5 */
+  padding-left: 4rem;         /* sm:pl-16 */
+  box-sizing: border-box;
+}
+@media (min-width: 640px) {
+  .blog-list-container {
+    padding-top: 3rem;        /* sm:pt-12 */
+  }
+}
+
+.blog-list-heading {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* Table wrapper */
+.blog-table-wrapper {
+  position: relative;
+  height: 80vh;
+  max-width: 850px;
+  overflow-x: auto;
+  margin-top: 1rem;
+  border: 1px solid #9ca3af;  /* gray-400 */
+}
+
+/* Hide native scrollbar (if you’ve included the plugin) */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Table styles */
+.blog-table {
+  width: 100%;
+  font-size: 0.875rem;
+  color: #6b7280;             /* gray-500 */
+  border-collapse: collapse;
+}
+
+.blog-table-head {
+  text-transform: uppercase;
+  text-align: left;
+  background-color: #f9fafb;  /* gray-50 */
+  color: #374151;             /* gray-700 */
+}
+
+.blog-table-cell {
+  padding: 0.75rem 1.5rem;    /* py-3 px-6 */
+}
+
+.blog-table-cell--author {
+  display: none;
+}
+@media (min-width: 640px) {
+  .blog-table-cell--author {
+    display: table-cell;
+  }
+}

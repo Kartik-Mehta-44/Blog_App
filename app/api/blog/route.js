@@ -2,7 +2,7 @@ import { connectDB } from "@/lib/config/db";
 import BlogModel from "@/lib/models/BlogModel";
 import {writeFile} from 'fs/promises';
 import { NextResponse } from "next/server";
-
+const fs = require('fs');
 
 const LoadDB = async () => {
     await connectDB();
@@ -53,4 +53,22 @@ export async function POST(request) {
         success: true,
         msg: "Blog Added"
     });
+}
+
+// Deleting -
+
+export async function DELETE(request) {
+    const id = await request.nextUrl.searchParams.get('id');
+    const blog = await BlogModel.findById(id);
+   try {
+    // blog.image is like "/12345_myimage.png"
+    const filePath = path.join(process.cwd(), 'public', blog.image)
+    await unlink(filePath)
+  } catch (err) {
+    console.warn('Could not delete image file:', err.message)
+    // We continue even if unlink fails
+  }
+    await BlogModel.findByIdAndDelete(id);
+    
+    return NextResponse.json({msg: "Blog Deleted"});
 }
