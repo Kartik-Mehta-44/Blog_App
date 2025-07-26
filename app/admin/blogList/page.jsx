@@ -16,7 +16,6 @@ const BlogListPage = () => {
 
   const deleteBlog = async (id) => {
     try {
-      // interpolate the id directly into the URL so Next sees `?id=…`
       const { data } = await axios.delete(`/api/blog?id=${id}`)
       toast.success(data.msg)
       fetchBlogs()
@@ -36,9 +35,7 @@ const BlogListPage = () => {
         <table className="blog-table">
           <thead className="blog-table-head">
             <tr>
-              <th className="blog-table-cell blog-table-cell--author">
-                Author name
-              </th>
+              <th className="blog-table-cell blog-table-cell--author">Author name</th>
               <th className="blog-table-cell">Blog title</th>
               <th className="blog-table-cell">Date</th>
               <th className="blog-table-cell">Action</th>

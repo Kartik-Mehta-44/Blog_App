@@ -8,7 +8,9 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <div className="sidebar__logo">
-        <Image src={assets.logo} width={120} alt="logo" />
+        <Link href='/'>
+          <Image src={assets.logo} width={120} alt="logo" />
+        </Link>
       </div>
 
       <div className="sidebar__content">

@@ -66,27 +66,7 @@ const BlogPage = ({ params }) => {
           />
         </div>
 
-        <h2 className="section-title">Introduction</h2>
         <p className="section-text">{data.description}</p>
-
-        {[1,2,3].map(step => (
-          <div key={step}>
-            <h3 className="step-title">
-              Step {step}: Lorem ipsum dolor sit dfghfg
-            </h3>
-            <p className="section-text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit...
-            </p>
-            <p className="section-text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit...
-            </p>
-          </div>
-        ))}
-
-        <h3 className="step-title">Conclusion:</h3>
-        <p className="section-text">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit...
-        </p>
 
         <div className="social-share">
           <p className="share-text">Share this article on social media</p>
