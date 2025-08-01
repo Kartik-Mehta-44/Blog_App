@@ -4,25 +4,48 @@ import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import Footer from '@/components/Footer'
-import { assets, blog_data } from '@/Assets/assets'
-import './blogPage.css'
+import { assets } from '@/Assets/assets'
 import axios from 'axios'
+import './blogPage.css'
 
 const BlogPage = ({ params }) => {
   const [data, setData] = useState(null)
+  const [summary, setSummary] = useState('')
+  const [loading, setLoading] = useState(false)
 
+  // Fetch the blog post data by ID
   const fetchBlogData = async () => {
-    const response = await axios.get('/api/blog',{
-      params:{
-        id: params.id
-      }
-    });
-    setData(response.data);
+    try {
+      const response = await axios.get('/api/blog', {
+        params: { id: params.id }
+      })
+      setData(response.data)
+    } catch (err) {
+      console.error('Error fetching blog data:', err)
+    }
   }
 
   useEffect(() => {
     fetchBlogData()
   }, [])
+
+  // Call your summary API route
+  const handleSummarize = async () => {
+    if (!data) return
+    setLoading(true)
+    try {
+      const res = await axios.post('/api/blog/summary', {
+        id: params.id,
+        content: `${data.title}\n\n${data.description}\n\n${data.content || ''}`
+      })
+      setSummary(res.data.summary)
+    } catch (err) {
+      console.error('Error generating summary:', err)
+      alert('Failed to generate summary.')
+    } finally {
+      setLoading(false)
+    }
+  }
 
   if (!data) return null
 
@@ -67,6 +90,22 @@ const BlogPage = ({ params }) => {
         </div>
 
         <p className="section-text">{data.description}</p>
+
+        {/* Show summary once generated */}
+        {summary && (
+          <div className="blog-summary">
+            <h2>Summary</h2>
+            <p>{summary}</p>
+          </div>
+        )}
+
+        <button
+          className="btn-generate-summary"
+          onClick={handleSummarize}
+          disabled={loading}
+        >
+          {loading ? 'Generating…' : 'Generate Summary'}
+        </button>
 
         <div className="social-share">
           <p className="share-text">Share this article on social media</p>
